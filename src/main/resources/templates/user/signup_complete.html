@@ -1,0 +1,22 @@
+<!-- 회원가입 성공 여부 페이지-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>회원가입</title>
+</head>
+<body>
+
+<div th:if="${result}">
+  <p>회원가입 성공</p>
+  <a href="/login">로그인 하기</a>
+</div>
+
+<div th:if="${result eq false}">
+  <p>이미 존재하는 아이디입니다.</p>
+  <a href="/signup">돌아가기</a>
+</div>
+
+
+</body>
+</html>
