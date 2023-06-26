@@ -42,20 +42,13 @@ public class ProductServiceImpl implements ProductService {
     @Override
     public Product detail(String id) {
 
-        Optional<Product> optionalProduct = productRepository.findById(Long.parseLong(id));
-
-        return optionalProduct.orElse(null);
+        return productRepository.findById(Long.parseLong(id)).orElse(null);
     }
 
     @Override
     public void update(ProductInput parameter, String id) {
-        Optional<Product> optionalProduct = productRepository.findById(Long.parseLong(id));
 
-        if(optionalProduct.isEmpty()) {
-            throw new IllegalStateException();
-        }
-
-        Product product = optionalProduct.get();
+        Product product = productRepository.findById(Long.parseLong(id)).orElseThrow(IllegalStateException::new);
 
         product.setProductName(parameter.getProductName());
         product.setProductType(parameter.getProductType());

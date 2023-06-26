@@ -23,7 +23,8 @@
                     <select name="productType">
                         <option th:each="productType : ${T(com.example.bookstore.product.entity.ProductType).values()}"
                                 th:value="${detail.getProductType()}"
-                                th:text="${detail.getProductType()}"></option>
+                                th:selected="${productType == detail.getProductType()}"
+                                th:text="${productType.name()}"></option>
                     </select>
                 </td>
             </tr>

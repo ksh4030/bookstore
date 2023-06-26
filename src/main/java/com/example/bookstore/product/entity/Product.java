@@ -17,16 +17,18 @@ public class Product {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    Long productId;
+    private Long productId;
 
-    String productName;
-    ProductType productType;
-    Long price;       //금액(정가)
-    Long salePrice;   //판매 금액
+    private String productName;
+
+    @Enumerated(EnumType.STRING)
+    private ProductType productType;
+    private Long price;       //금액(정가)
+    private Long salePrice;   //판매 금액
 
     @Lob
-    String productDetail; //상품 설명
-    Long stock;
-    LocalDateTime regDate; //등록일
+    private String productDetail; //상품 설명
+    private long stock;
+    private LocalDateTime regDate; //등록일
 
 }

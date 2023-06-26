@@ -30,7 +30,7 @@ public class ProductInput {
 
     @NotNull(message = "제고 수량은 필수로 입력해야 합니다.")
     @Min(value = 0)
-    Long stock;
+    long stock;
 
     @NotNull(message = "등록일은 필수로 입력해야 합니다.")
     private LocalDateTime regDate;
