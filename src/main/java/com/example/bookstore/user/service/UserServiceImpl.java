@@ -55,10 +55,10 @@ public class UserServiceImpl implements UserService {
                 .orElseThrow(() -> new UsernameNotFoundException("회원 정보가 존재하지 않습니다."));
 
         List<GrantedAuthority> grantedAuthorityList = new ArrayList<>();
-        grantedAuthorityList.add(new SimpleGrantedAuthority(Role.USER.getRole()));
+        grantedAuthorityList.add(new SimpleGrantedAuthority(Role.USER.name()));
 
         if (user.getRole().equals("admin")) {
-            grantedAuthorityList.add(new SimpleGrantedAuthority(Role.ADMIN.getRole()));
+            grantedAuthorityList.add(new SimpleGrantedAuthority(Role.ADMIN.name()));
         }
 
         return new org.springframework.security.core.userdetails.User(user.getUserId(), user.getPassword(), grantedAuthorityList);

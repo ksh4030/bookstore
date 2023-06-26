@@ -1,5 +1,6 @@
 package com.example.bookstore.user.config;
 
+import com.example.bookstore.user.entity.Role;
 import com.example.bookstore.user.service.UserService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.context.annotation.Bean;
@@ -39,7 +40,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
         http.authorizeRequests()
                 .antMatchers("/admin")
-                .hasAuthority("ROLE_PARTNER");
+                .hasAuthority(Role.ADMIN.name());
 
         http.formLogin()
                 .loginPage("/login")
