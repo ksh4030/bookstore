@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>제품 리스트</title>
+</head>
+<body>
+<div>
+    <a href="/admin">돌아가기</a>
+</div>
+<table>
+    <tbody>
+    <tr th:each="data : ${list}">
+       <td>
+           <a th:text="${data.getProductName()}" th:href="${'detail?id=' + data.getProductId()}">이름</a>
+       </td>
+       <td>
+           <form id="delete_form" method="post">
+               <input type="hidden" name="productId" th:value="${data.getProductId()}">
+           </form>
+           <button onclick="return (confirm('삭제하겠습니까?')) ? document.getElementById('delete_form').submit() : '';">삭제</button>
+       </td>
+    </tr>
+    </tbody>
+</table>
+</body>
+</html>
